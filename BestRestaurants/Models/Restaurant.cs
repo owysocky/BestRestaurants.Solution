@@ -9,20 +9,21 @@ namespace BestRestaurants.Models
     private int _id;
     private int _cuisineId;
 
-    public Cuisine(string restaurantName, int cuisineId, int id = 0)
+    public Restaurant(string restaurantName, int cuisineId, int id = 0)
     {
       _name = restaurantName;
       _id = id;
       _cuisineId = cuisineId;
     }
 
-    public string GetName{return _name;}
-    public string GetId{return _id;}
-    public string GetCuisineId{return _cuisineId;}
+    public string GetName(){return _name;}
+    public void SetName(string name){ _name = name;}
+    public int GetId(){return _id;}
+    public int GetCuisineId(){return _cuisineId;}
 
     public static List<Restaurant> GetAll()
     {
-      List<Restaurant> allRestaurants new List<Restaurant>{};
+      List<Restaurant> allRestaurants = new List<Restaurant>{};
       MySqlConnection conn = DB.Connection();
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;

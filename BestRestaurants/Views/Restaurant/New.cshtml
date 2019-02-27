@@ -1,0 +1,8 @@
+<h1>Add a new restaurant to @Model.GetType()</h1>
+
+<form action='/cuisines/@Model.GetId()/restaurants' method='post'>
+  <input id='cuisineId' name='cuisineId' type='hidden' value='@Model.GetId()'>
+  <label for='restaurantName'>Restaurant name</label>
+  <input id='restaurantName' name='restaurantName' type='text'>
+  <button type='submit'>Add restaurant</button>
+</form>

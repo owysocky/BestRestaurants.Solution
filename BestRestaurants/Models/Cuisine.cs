@@ -14,13 +14,13 @@ namespace BestRestaurants.Models
       _id = id;
     }
 
-    public string GetType{return _type;}
-    public string GetId{return _id;}
+    public string GetType(){return _type;}
+    public int GetId(){return _id;}
 
     public static void ClearAll()
     {
-      MySqlConnection conn = BD.Connection();
-      conn.Open;
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
       cmd.CommandText = @"DELETE  FROM cuisines;";
       cmd.ExecuteNonQuery();
@@ -59,7 +59,7 @@ namespace BestRestaurants.Models
       MySqlConnection conn = DB.Connection();
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"SELECT * FROM cuisines WHERE id = (@serchId);";
+      cmd.CommandText = @"SELECT * FROM cuisines WHERE id = (@searchId);";
       MySqlParameter searchId = new MySqlParameter();
       searchId.ParameterName = "@searchId";
       searchId.Value = id;
@@ -81,7 +81,7 @@ namespace BestRestaurants.Models
       return newCuisine;
     }
 
-    public List<Restaurant> GetRestaurant()
+    public List<Restaurant> GetRestaurants()
     {
       List<Restaurant> allCuisineRestaurants = new List<Restaurant>{};
       MySqlConnection conn = DB.Connection();
@@ -97,8 +97,8 @@ namespace BestRestaurants.Models
       {
         int restaurantId = rdr.GetInt32(1);
         string restaurantName = rdr.GetString(0);
-        int cuisineId = rdr.GetInt32(2);
-        Restaurant newRestaurant= new Restaurant(restaurantName, cuisineId, restaurantId);
+        int cuisinesId = rdr.GetInt32(2);
+        Restaurant newRestaurant= new Restaurant(restaurantName, cuisinesId, restaurantId);
         allCuisineRestaurants.Add(newRestaurant);
       }
       conn.Close();
@@ -119,7 +119,7 @@ namespace BestRestaurants.Models
       {
         Cuisine newCuisine = (Cuisine) otherCuisine;
         bool idEquality = this.GetId().Equals(newCuisine.GetId());
-        bool typeEquality = this.GetType().Equals(newCuisine.GetName());
+        bool typeEquality = this.GetType().Equals(newCuisine.GetType());
         return (idEquality && typeEquality);
       }
     }
