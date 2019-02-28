@@ -4,6 +4,10 @@
 <h3>Cuisine: @Model["cuisine"].GetType()</h3>
 
 
+<form action='/restaurants/@Model["restaurant"].GetId()/reviews/new' method='get'>
+<button type="submit">Add a review</button>
+</form>
+
 <form action='/cuisines/@Model["cuisine"].GetId()/restaurants/@Model["restaurant"].GetId()/edit' method='get'>
 <button type="submit">Edit this Restaurant</button>
 </form>

@@ -1,0 +1,8 @@
+<h3>Here are all the reviews:</h3>
+
+<ol>
+@foreach (var review in @Model["review"])
+{
+  <li> @review.GetStar() @review.GetReview()</li>
+}
+</ol>

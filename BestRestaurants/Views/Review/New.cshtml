@@ -1,0 +1,12 @@
+<h1>Add a new review to @Model.GetName()</h1>
+
+<form action='/restaurants/@Model.GetId()/reviews' method='post'>
+  <input id='restaurantId' name='restaurantId' type='hidden' value='@Model.GetId()'>
+  <label for='star'>Stars</label>
+  <input id='star' name='star' type='number'>
+  <br>
+  <label for='review'>Comments</label>
+  <input id='review' name='review' type='text'>
+  <br>
+  <button type='submit'>Add review</button>
+</form>
