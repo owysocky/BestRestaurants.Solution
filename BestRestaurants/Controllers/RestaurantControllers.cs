@@ -61,5 +61,13 @@ namespace BestRestaurants.Controllers
       return View("Show", model);
     }
 
+    [HttpPost("/cuisines/{cuisineId}/restaurants/{restaurantId}/delete")]
+    public ActionResult DeleteOne(int restaurantId)
+    {
+      Restaurant restaurant = Restaurant.Find(restaurantId);
+      restaurant.Delete();
+      return RedirectToAction("Show");
+    }
+
   }
 }
