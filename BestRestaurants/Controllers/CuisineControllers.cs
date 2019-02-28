@@ -54,6 +54,14 @@ namespace BestRestaurants.Controllers
       return View("Show", model);
     }
 
-    
+    [HttpGet("/cuisines/{id}/delete")]
+    public ActionResult Delete(int id)
+    {
+      Cuisine selectedCuisine = Cuisine.Find(id);
+      selectedCuisine.Delete();
+      return RedirectToAction("Index");
+    }
+
+
   }
 }

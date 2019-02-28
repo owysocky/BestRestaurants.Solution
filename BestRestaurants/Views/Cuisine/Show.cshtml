@@ -13,8 +13,11 @@
 </form>
 
 <form action='/cuisines/@Model["cuisine"].GetId()/restaurants/clear' method='post'>
-<input id='cuisineId' name='cuisineId' type='hidden' value='@Model["cuisine"].GetId()'>
 <button type="submit">Delete all restaurants</button>
+</form>
+
+<form action='/cuisines/@Model["cuisine"].GetId()/delete' method='get'>
+<button type="submit">Delete this cuisine</button>
 </form>
 
 <form action='/cuisines' method='get'>
