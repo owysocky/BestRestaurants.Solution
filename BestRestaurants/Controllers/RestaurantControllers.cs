@@ -29,6 +29,12 @@ namespace BestRestaurants.Controllers
     public ActionResult DeleteAll()
     {
       Restaurant.ClearAll();
+      return View("Delete");
+    }
+
+    [HttpGet("/restaurants/delete")]
+    public ActionResult Delete()
+    {
       return View();
     }
 
