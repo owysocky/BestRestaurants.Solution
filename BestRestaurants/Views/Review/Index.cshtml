@@ -3,6 +3,10 @@
 <ol>
 @foreach (var review in @Model["review"])
 {
-  <li> @review.GetStar() @review.GetReview()</li>
+  <li> Stars: @review.GetStar(). Comment: @review.GetReview().</li>
 }
 </ol>
+
+<form action='/cuisines' method='get'>
+<button type="submit">View all cuisines</button>
+</form>
