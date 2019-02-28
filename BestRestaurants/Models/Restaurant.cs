@@ -45,17 +45,21 @@ namespace BestRestaurants.Models
       return allRestaurants;
     }
 
-    public static void ClearAll()
+    public static void ClearAll(int cuisineId)
     {
       MySqlConnection conn = DB.Connection();
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"DELETE FROM restaurants;";
+      cmd.CommandText = @"DELETE FROM restaurants WHERE cuisine_id = @searchId;";
+      MySqlParameter searchId = new MySqlParameter();
+      searchId.ParameterName = "@searchId";
+      searchId.Value = cuisineId;
+      cmd.Parameters.Add(searchId);
       cmd.ExecuteNonQuery();
       conn.Close();
       if (conn != null)
       {
-       conn.Dispose();
+        conn.Dispose();
       }
     }
 

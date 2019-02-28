@@ -8,10 +8,19 @@
 }
 </ol>
 
-<form action='/restaurants/delete' method='post'>
+<form action='/cuisines/@Model["cuisine"].GetId()/restaurants/new' method='get'>
+<button type="submit">Add a new restaurant</button>
+</form>
+
+<form action='/cuisines/@Model["cuisine"].GetId()/restaurants/clear' method='post'>
+<input id='cuisineId' name='cuisineId' type='hidden' value='@Model["cuisine"].GetId()'>
 <button type="submit">Delete all restaurants</button>
 </form>
 
-<p><a href='/cuisines/@Model["cuisine"].GetId()/restaurants/new'>Add a new restaurant</a></p>
-<p><a href='/cuisines'>Return to cuisine list</a></p>
-<p><a href='/'>Return to Main Page</a></p>
+<form action='/cuisines' method='get'>
+<button type="submit">View all cuisines</button>
+</form>
+
+<form action='/' method='get'>
+<button type="submit">Home</button>
+</form>

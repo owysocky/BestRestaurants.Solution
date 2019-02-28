@@ -3,12 +3,19 @@
 <h2>@Model["restaurant"].GetName()</h2>
 <h3>Cuisine: @Model["cuisine"].GetType()</h3>
 
-<form action='/cuisines/@Model["cuisine"].GetId()/restaurants/@Model["restaurant"].GetId()/delete' method='post'>
 
+<form action='/cuisines/@Model["cuisine"].GetId()/restaurants/@Model["restaurant"].GetId()/edit' method='get'>
+<button type="submit">Edit this Restaurant</button>
+</form>
+
+<form action='/cuisines/@Model["cuisine"].GetId()/restaurants/@Model["restaurant"].GetId()/delete' method='post'>
 <button type="submit">Delete this restaurant</button>
 </form>
 
+<form action='/cuisines/@Model["cuisine"].GetId()/restaurants/new' method='get'>
+<button type="submit">Add another restaurant</button>
+</form>
 
-<a href='/cuisines/@Model["cuisine"].GetId()/restaurants/@Model["restaurant"].GetId()/edit'>Edit this Restaurant</a>
-<a href='/cuisines/@Model["cuisine"].GetId()/restaurants/new'>Add another restaurant</a>
-<a href='/cuisines'>View all cuisines</a>
+<form action='/cuisines' method='get'>
+<button type="submit">View all cuisines</button>
+</form>

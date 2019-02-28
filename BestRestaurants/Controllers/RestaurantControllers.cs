@@ -25,14 +25,14 @@ namespace BestRestaurants.Controllers
       return View(model);
     }
 
-    [HttpPost("/restaurants/delete")]
-    public ActionResult DeleteAll()
+    [HttpPost("/cuisines/{cuisineId}/restaurants/clear")]
+    public ActionResult DeleteAll(int cuisineId)
     {
-      Restaurant.ClearAll();
+      Restaurant.ClearAll(cuisineId);
       return View("Delete");
     }
 
-    [HttpGet("/restaurants/delete")]
+    [HttpGet("/cuisines/{cuisineId}/restaurants/clear")]
     public ActionResult Delete()
     {
       return View();
